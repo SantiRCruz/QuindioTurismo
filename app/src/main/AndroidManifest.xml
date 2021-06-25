@@ -12,15 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuindioTuristico">
-        <activity android:name=".HotelesActivity"></activity>
-        <activity android:name=".controllers.SplashActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/title_activity_menu"
+            android:theme="@style/Theme.QuindioTuristico.NoActionBar">            <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter></activity>
+        <activity android:name=".controllers.HotelesActivity">
         </activity>
-        <activity android:name=".controllers.MainActivity"></activity>
+        <activity android:name=".controllers.SplashActivity" />
+        <activity android:name=".controllers.MainActivity" />
     </application>
 
 </manifest>
