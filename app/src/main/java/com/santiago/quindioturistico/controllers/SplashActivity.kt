@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import com.santiago.quindioturistico.MenuActivity
 import com.santiago.quindioturistico.R
 
 class SplashActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                val intent  =  Intent(applicationContext, MainActivity::class.java)
+                val intent  =  Intent(applicationContext, MenuActivity::class.java)
                 startActivity(intent)
                 finish()
             }

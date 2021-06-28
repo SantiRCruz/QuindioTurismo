@@ -12,7 +12,7 @@ import com.santiago.quindioturistico.databinding.FragmentHotelesBinding
 
 class HotelesFragment : Fragment() {
 
-    private lateinit var HotelesViewModel: HotelesViewModel
+    private  var HotelesViewModel: HotelesViewModel = HotelesViewModel()
     private var _binding: FragmentHotelesBinding? = null
 
     // This property is only valid between onCreateView and

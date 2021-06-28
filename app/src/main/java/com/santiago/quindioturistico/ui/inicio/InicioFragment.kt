@@ -12,7 +12,7 @@ import com.santiago.quindioturistico.databinding.FragmentInicioBinding
 
 class InicioFragment : Fragment() {
 
-    private lateinit var InicioViewModel: InicioViewModel
+    private  var InicioViewModel: InicioViewModel = InicioViewModel()
     private var _binding: FragmentInicioBinding? = null
 
     // This property is only valid between onCreateView and
