@@ -4,20 +4,19 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.santiago.quindioturistico.MenuActivity
 import com.santiago.quindioturistico.R
 import com.santiago.quindioturistico.databinding.FragmentSitiosBinding
-import com.santiago.quindioturistico.models.Informacion
 import com.santiago.quindioturistico.ui.MainAdapter
-import kotlinx.android.synthetic.main.activity_hoteles.*
+
 import kotlinx.android.synthetic.main.fragment_sitios.*
 
 class SitiosFragment : Fragment() {
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,17 +55,10 @@ class SitiosFragment : Fragment() {
 
     }
 
-    var sitios : List<Informacion> = listOf(
-        Informacion("CC Santafe","centro comercial","norte de bogota"),
-        Informacion("CC hayuelos","centro comercial","noroccidente de bogota"),
-        Informacion("CC androide","centro comercial","occidente de bogota"),
-        Informacion("CC tunjuelito","centro comercial","oriente de bogota"),
-        Informacion("CC hoyas","centro comercial","sur de bogota"),
-    )
 
     private fun setupRecyclerView(){
         recyclerViewSitios.layoutManager =  LinearLayoutManager(requireContext())
-        val adapter = MainAdapter(sitios)
+        val adapter = MainAdapter(MenuActivity.listaSitios)
         recyclerViewSitios.adapter = adapter
     }
 

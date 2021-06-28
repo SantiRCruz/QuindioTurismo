@@ -12,11 +12,19 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.santiago.quindioturistico.databinding.ActivityMenuBinding
+import com.santiago.quindioturistico.models.Constantes
+import com.santiago.quindioturistico.models.DBManager
+import com.santiago.quindioturistico.models.Informacion
 
 class MenuActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
+
+    var dbManager: DBManager? = null
+    companion object{
+        var listaSitios : List<Informacion> = ArrayList()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +50,13 @@ class MenuActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+        //listas obtenidas desde la BD
+        dbManager = DBManager(applicationContext)
+
+         listaSitios = dbManager!!.listar(Constantes.TABLE_S_NAME)
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

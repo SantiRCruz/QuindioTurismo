@@ -3,7 +3,7 @@ package com.santiago.quindioturistico.models
 class Constantes {
     companion object{
         val DB_NAME="TURISMO"
-        val DB_VERSION=2
+        val DB_VERSION=7
 
 
         val TABLE_H_NAME="hoteles"
@@ -14,21 +14,21 @@ class Constantes {
         val TABLE_COLUMN_3="ubicacion"
         val TABLE_COLUMN_4="descripcion"
 
-        val CONSULTA = " SELECTO * FROM "
+        val CONSULTA = " SELECT * FROM "
 
 
 
-        val TABLE_H_CREATE=" CREATE TABLE " + TABLE_H_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
+        val TABLE_H_CREATE=" CREATE TABLE IF NOT EXISTS " + TABLE_H_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
                 TABLE_COLUMN_2+ " TEXT , " +
                 TABLE_COLUMN_3+ " TEXT , " +
                 TABLE_COLUMN_4+ " TEXT ) "
 
-        val TABLE_S_CREATE=" CREATE TABLE " + TABLE_S_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
+        val TABLE_S_CREATE=" CREATE TABLE IF NOT EXISTS " + TABLE_S_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
                 TABLE_COLUMN_2+ " TEXT , " +
                 TABLE_COLUMN_3+ " TEXT , " +
                 TABLE_COLUMN_4+ " TEXT ) "
 
-        val TABLE_R_CREATE=" CREATE TABLE " + TABLE_R_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
+        val TABLE_R_CREATE=" CREATE TABLE IF NOT EXISTS " + TABLE_R_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
                 TABLE_COLUMN_2+ " TEXT , " +
                 TABLE_COLUMN_3+ " TEXT , " +
                 TABLE_COLUMN_4+ " TEXT ) "

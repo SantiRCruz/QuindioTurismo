@@ -15,15 +15,13 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.QuindioTuristico.NoActionBar"></activity>
-        <activity android:name=".controllers.HotelesActivity"><intent-filter>
+            android:theme="@style/Theme.QuindioTuristico.NoActionBar"/>
+        <activity android:name=".controllers.SplashActivity" ><intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter></activity>
-        <activity android:name=".controllers.SplashActivity" >
-            </activity>
-        <activity android:name=".controllers.MainActivity" />
+
     </application>
 
 </manifest>

@@ -15,6 +15,8 @@ class DBHelper(
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL( " DROP TABLE IF EXISTS  " + Constantes.TABLE_S_NAME )
+        db?.execSQL( " DROP TABLE IF EXISTS  " + Constantes.TABLE_H_NAME )
+        db?.execSQL( " DROP TABLE IF EXISTS  " + Constantes.TABLE_R_NAME )
         onCreate(db)
     }
 }

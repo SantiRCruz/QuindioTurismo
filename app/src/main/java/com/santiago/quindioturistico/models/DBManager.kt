@@ -4,10 +4,16 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 
-class DBManager (context: Context){
+class DBManager(context: Context){
 
-    val dbHelper =  DBHelper(context)
+
+    val dbHelper = DBHelper(context)
     var db : SQLiteDatabase  ?= null
+
+
+
+
+
 
     fun openDbWR(){
         db =  dbHelper.writableDatabase
@@ -29,7 +35,7 @@ class DBManager (context: Context){
         values.put(Constantes.TABLE_COLUMN_2,informacion.descripcionCorta)
         values.put(Constantes.TABLE_COLUMN_3,informacion.ubicacion)
         values.put(Constantes.TABLE_COLUMN_4,informacion.descripcion)
-        var result = db?.insert(Constantes.TABLE_S_NAME,null, values)
+        var result = db?.insert(nombreTabla,null, values)
         closeDb()
         return  result!!
     }
@@ -50,5 +56,8 @@ class DBManager (context: Context){
         closeDb()
         return lista
 
+    }
+    fun eliminar(nombreTabla: String){
+        db?.delete(nombreTabla,null,null)
     }
 }
