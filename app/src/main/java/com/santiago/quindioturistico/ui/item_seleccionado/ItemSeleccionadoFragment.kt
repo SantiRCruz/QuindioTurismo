@@ -1,21 +1,26 @@
-package com.santiago.quindioturistico.ui.sitios
+package com.santiago.quindioturistico.ui.item_seleccionado
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.santiago.quindioturistico.controllers.MenuActivity
 import com.santiago.quindioturistico.R
-import com.santiago.quindioturistico.databinding.FragmentSitiosBinding
 import com.santiago.quindioturistico.controllers.MainAdapter
-
+import com.santiago.quindioturistico.controllers.MenuActivity
+import com.santiago.quindioturistico.databinding.FragmentSitiosBinding
+import com.santiago.quindioturistico.models.Constantes
+import com.santiago.quindioturistico.models.DBManager
+import com.santiago.quindioturistico.ui.sitios.SitiosViewModel
+import kotlinx.android.synthetic.main.fragment_item_seleccionado.*
 import kotlinx.android.synthetic.main.fragment_sitios.*
 
-class SitiosFragment : Fragment() {
 
+class ItemSeleccionadoFragment : Fragment() {
+
+    var dbManager : DBManager ?= null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,16 +50,24 @@ class SitiosFragment : Fragment() {
         return root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        text_sitios.text = "Sitos de nuestro hermoso Quindio"
-        setupRecyclerView()
-    }
+        textViewItemSeleccionado.text = "Su item seleccionado es : "
 
-    private fun setupRecyclerView(){
-        recyclerViewSitios.layoutManager =  LinearLayoutManager(requireContext())
-        val adapter = MainAdapter(MenuActivity.listaSitios)
-        recyclerViewSitios.adapter = adapter
+
+
+        dbManager= DBManager(view.context)
+        var listaSitios = dbManager!!.consultarDetalle(Constantes.TABLE_S_NAME,Constantes.NOMBRE_ITEM)
+        var nombre : String = listaSitios[0].toString()
+        var descripcionCorta : String = listaSitios[1].toString()
+        var ubicacion : String = listaSitios[2].toString()
+        var descripcion : String = listaSitios[3].toString()
+
+        textViewItemSeleccionado.text = "Su item seleccionado es : " + nombre
+        textViewItemSitiosNombre.text = nombre
+        textViewItemSitiosDescripcion.text = descripcion
 
     }
 

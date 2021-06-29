@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
-import com.santiago.quindioturistico.MenuActivity
 import com.santiago.quindioturistico.R
 import com.santiago.quindioturistico.models.Constantes
 import com.santiago.quindioturistico.models.DBHelper
@@ -23,13 +22,13 @@ class SplashActivity : AppCompatActivity() {
         dbHelper.writableDatabase
 
         dbManager = DBManager(applicationContext)
-        importarCSV(Constantes.TABLE_H_NAME, R.raw.hoteles)
-//        if (ejecucion == 0){
-//            importarCSV(Constantes.TABLE_S_NAME,R.raw.sitios)
-//            importarCSV(Constantes.TABLE_H_NAME,R.raw.hoteles)
-//            importarCSV(Constantes.TABLE_R_NAME,R.raw.restaurantes)
-//            ejecucion++
-//        }
+
+        if (ejecucion == 0){
+            importarCSV(Constantes.TABLE_S_NAME,R.raw.sitios)
+            importarCSV(Constantes.TABLE_H_NAME,R.raw.hoteles)
+            importarCSV(Constantes.TABLE_R_NAME,R.raw.restaurantes)
+            ejecucion++
+        }
 
         startTimer()
     }
@@ -49,10 +48,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     fun importarCSV(nombreTabla: String, nombreCSV: Int) {
-        var nombre: String
-        var descripcionCorta: String
-        var ubicacion: String
-        var descripcion: String
+
 
         var lista: MutableList<String> = ArrayList()
         val openRawResource = resources.openRawResource(nombreCSV)
@@ -61,17 +57,10 @@ class SplashActivity : AppCompatActivity() {
         while (line != null) {
             var List: List<String> = line.split(";")
             Log.e("prueba>>>", List.toString())
-            if (List == null) { // probar cada item de la lista para verificar si es nulo (corregir)
-                 nombre = List[0]
-                 descripcionCorta = List[1]
-                 ubicacion = List[2]
-                 descripcion = List[3]
-            } else {
-                 nombre = List[0]
-                 descripcionCorta = List[1]
-                 ubicacion = List[2]
-                 descripcion = List[3]
-            }
+            var nombre: String= List[0]
+            var descripcionCorta: String= List[1]
+            var ubicacion: String= List[2]
+            var descripcion: String= List[3]
             var informacion = Informacion(nombre, descripcionCorta, ubicacion, descripcion)
             dbManager?.insertar(nombreTabla, informacion)
             lista.add(List.toString())

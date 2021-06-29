@@ -12,16 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuindioTuristico">
+        <activity android:name=".controllers.ItemSeleccionadoActivity"></activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".controllers.MenuActivity"
             android:label="@string/title_activity_menu"
-            android:theme="@style/Theme.QuindioTuristico.NoActionBar"/>
-        <activity android:name=".controllers.SplashActivity" ><intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:theme="@style/Theme.QuindioTuristico.NoActionBar" />
+        <activity android:name=".controllers.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter></activity>
-
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

@@ -2,8 +2,15 @@ package com.santiago.quindioturistico.models
 
 class Constantes {
     companion object{
+        //variables extras
+
+        var NOMBRE_ITEM : String = ""
+
+
+
+        //BD
         val DB_NAME="TURISMO"
-        val DB_VERSION=12
+        val DB_VERSION=14
 
 
         val TABLE_H_NAME="hoteles"

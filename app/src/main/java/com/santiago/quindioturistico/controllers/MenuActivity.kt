@@ -1,4 +1,4 @@
-package com.santiago.quindioturistico
+package com.santiago.quindioturistico.controllers
 
 import android.os.Bundle
 import android.view.Menu
@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.santiago.quindioturistico.R
 import com.santiago.quindioturistico.databinding.ActivityMenuBinding
 import com.santiago.quindioturistico.models.Constantes
 import com.santiago.quindioturistico.models.DBManager
@@ -45,7 +46,7 @@ class MenuActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_inicio, R.id.nav_sitios, R.id.nav_hoteles,R.id.nav_restaurantes
+                R.id.nav_inicio, R.id.nav_sitios, R.id.nav_hoteles, R.id.nav_restaurantes
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
