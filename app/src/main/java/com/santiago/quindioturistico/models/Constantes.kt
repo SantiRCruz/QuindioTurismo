@@ -3,7 +3,7 @@ package com.santiago.quindioturistico.models
 class Constantes {
     companion object{
         val DB_NAME="TURISMO"
-        val DB_VERSION=7
+        val DB_VERSION=12
 
 
         val TABLE_H_NAME="hoteles"
@@ -15,7 +15,6 @@ class Constantes {
         val TABLE_COLUMN_4="descripcion"
 
         val CONSULTA = " SELECT * FROM "
-
 
 
         val TABLE_H_CREATE=" CREATE TABLE IF NOT EXISTS " + TABLE_H_NAME + " ( " + TABLE_COLUMN_1 + " TEXT PRIMARY KEY , " +
