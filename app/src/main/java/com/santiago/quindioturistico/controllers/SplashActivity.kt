@@ -56,7 +56,7 @@ class SplashActivity : AppCompatActivity() {
         var line = bufferedReader.readLine()
         while (line != null) {
             var List: List<String> = line.split(";")
-            Log.e("prueba>>>", List.toString())
+            //Log.e("prueba>>>", List.toString())
             var nombre: String= List[0]
             var descripcionCorta: String= List[1]
             var ubicacion: String= List[2]

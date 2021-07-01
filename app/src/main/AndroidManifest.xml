@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.QuindioTuristico">
-        <activity android:name=".controllers.ItemSeleccionadoActivity"></activity>
         <activity
             android:name=".controllers.MenuActivity"
             android:label="@string/title_activity_menu"

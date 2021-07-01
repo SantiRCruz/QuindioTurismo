@@ -16,8 +16,11 @@ import com.santiago.quindioturistico.databinding.ActivityMenuBinding
 import com.santiago.quindioturistico.models.Constantes
 import com.santiago.quindioturistico.models.DBManager
 import com.santiago.quindioturistico.models.Informacion
+import com.santiago.quindioturistico.ui.item_seleccionado.ItemSeleccionadoFragment
 
 class MenuActivity : AppCompatActivity() {
+
+
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMenuBinding
@@ -25,6 +28,8 @@ class MenuActivity : AppCompatActivity() {
     var dbManager: DBManager? = null
     companion object{
         var listaSitios : List<Informacion> = ArrayList()
+        var listaHoteles : List<Informacion> = ArrayList()
+        var listaRestaurante : List<Informacion> = ArrayList()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -46,7 +51,7 @@ class MenuActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_inicio, R.id.nav_sitios, R.id.nav_hoteles, R.id.nav_restaurantes
+                R.id.nav_inicio, R.id.nav_sitios, R.id.nav_hoteles, R.id.nav_restaurantes,
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -54,9 +59,11 @@ class MenuActivity : AppCompatActivity() {
 
 
         //listas obtenidas desde la BD
-        dbManager = DBManager(applicationContext)
 
-         listaSitios = dbManager!!.listar(Constantes.TABLE_S_NAME)
+        dbManager = DBManager(applicationContext)
+        listaSitios = dbManager!!.listar(Constantes.TABLE_S_NAME)
+        listaHoteles = dbManager!!.listar(Constantes.TABLE_H_NAME)
+        listaRestaurante = dbManager!!.listar(Constantes.TABLE_R_NAME)
 
     }
 

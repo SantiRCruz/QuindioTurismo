@@ -1,16 +1,14 @@
 package com.santiago.quindioturistico.models
 
+import android.content.Context
+
 class Constantes {
     companion object{
-        //variables extras
-
-        var NOMBRE_ITEM : String = ""
-
-
-
+        var NOMBRE_ITEM = ""
+        var BANDERA_POSICION_NAV = 0
         //BD
         val DB_NAME="TURISMO"
-        val DB_VERSION=14
+        val DB_VERSION=15
 
 
         val TABLE_H_NAME="hoteles"

@@ -25,11 +25,11 @@
     <fragment
         android:id="@+id/nav_restaurantes"
         android:name="com.santiago.quindioturistico.ui.restaurantes.RestauranteFragment"
-        android:label="fragment_restaurante"
+        android:label="Detalle"
         tools:layout="@layout/fragment_restaurante" />
     <fragment
-        android:id="@+id/itemSeleccionadoFragment"
-        android:name="com.santiago.quindioturistico.ItemSeleccionadoFragment"
-        android:label="fragment_item_seleccionado"
+        android:id="@+id/nav_itemSeleccionado"
+        android:name="com.santiago.quindioturistico.ui.item_seleccionado.ItemSeleccionadoFragment"
+        android:label="Detalle"
         tools:layout="@layout/fragment_item_seleccionado" />
 </navigation>

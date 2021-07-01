@@ -8,10 +8,16 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.santiago.quindioturistico.R
+import com.santiago.quindioturistico.controllers.MainAdapter
+import com.santiago.quindioturistico.controllers.MenuActivity
 import com.santiago.quindioturistico.databinding.FragmentSitiosBinding
 import com.santiago.quindioturistico.ui.sitios.SitiosViewModel
 import com.santiago.quindioturistico.databinding.FragmentRestauranteBinding
+import com.santiago.quindioturistico.models.Constantes
+import kotlinx.android.synthetic.main.fragment_hoteles.*
+import kotlinx.android.synthetic.main.fragment_restaurante.*
 
 
 class RestauranteFragment : Fragment() {
@@ -34,13 +40,24 @@ class RestauranteFragment : Fragment() {
         _binding = FragmentRestauranteBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textRestaurante
-        RestauranteViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+//        val textView: TextView = binding.textRestaurante
+//        RestauranteViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//        })
         return root
     }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Constantes.BANDERA_POSICION_NAV = 3
+        text_restaurante.text = "Restaurantes de nuestro hermoso Quindio"
+        setupRecyclerView()
+    }
 
+    private fun setupRecyclerView(){
+        recyclerViewRestaurante.layoutManager =  LinearLayoutManager(requireContext())
+        val adapter = MainAdapter(MenuActivity.listaRestaurante)
+        recyclerViewRestaurante.adapter = adapter
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

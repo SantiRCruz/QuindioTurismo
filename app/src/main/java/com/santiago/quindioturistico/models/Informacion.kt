@@ -26,6 +26,6 @@ class Informacion {
     }
 
     override fun toString(): String {
-        return "Hoteles(nombre='$nombre', descripcionCorta='$descripcionCorta', ubicacion='$ubicacion', Descripcion='$descripcion')"
+        return "$nombre * $descripcionCorta * $ubicacion * $descripcion"
     }
 }
